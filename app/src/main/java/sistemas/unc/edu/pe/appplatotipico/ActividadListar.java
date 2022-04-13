@@ -35,7 +35,6 @@ public class ActividadListar extends AppCompatActivity {
             case R.id.itemListaCancelar:
                 finish();
                 break;
-            case R.id.itemListaEliminar:
         }
         return super.onOptionsItemSelected(item);
     }

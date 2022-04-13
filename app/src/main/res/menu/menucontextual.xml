@@ -2,10 +2,6 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/itemListaEliminar"
-        android:icon="@drawable/eliminar"
-        android:title="Eliminar"
-        app:showAsAction="always" />
     <item android:id="@+id/itemListaCancelar"
         android:icon="@drawable/cerrar"
         android:title="Cancelar"
