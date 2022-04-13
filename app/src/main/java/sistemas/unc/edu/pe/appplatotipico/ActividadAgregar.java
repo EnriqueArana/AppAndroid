@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -15,13 +17,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 import Modelo.Plato;
 
 public class ActividadAgregar extends AppCompatActivity {
     EditText etNombre, etOrigen, etPrecio, etDescripcion;
     RatingBar rbPreferencia;
     ImageView imgPlato;
-    Uri imagenPlato;
+    // Uri imagenPlato;
+    Bitmap imagenPlato;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +56,7 @@ public class ActividadAgregar extends AppCompatActivity {
     }
 
     private void registarDatos() {
-        String nombre,origen,descripcion;
+        String nombre, origen, descripcion;
         double precio;
         int preferencia;
         nombre = etNombre.getText().toString();
@@ -57,12 +64,12 @@ public class ActividadAgregar extends AppCompatActivity {
         descripcion = etDescripcion.getText().toString();
         precio = Double.valueOf(etPrecio.getText().toString());
         preferencia = rbPreferencia.getProgress();
-        Plato oPlato = new Plato(nombre,origen,descripcion,precio,preferencia,imagenPlato);
+        Plato oPlato = new Plato(nombre, origen, descripcion, precio, preferencia, imagenPlato);
         MainActivity.datos.agregar(oPlato);
         cuadroDialogo();
     }
 
-    public void limpiarCuadros(){
+    public void limpiarCuadros() {
         etNombre.setText("");
         etOrigen.setText("");
         etPrecio.setText("");
@@ -71,7 +78,7 @@ public class ActividadAgregar extends AppCompatActivity {
         imgPlato.setImageResource(R.drawable.seleccionar);
     }
 
-    private void cuadroDialogo(){
+    private void cuadroDialogo() {
         AlertDialog.Builder oDialogo = new AlertDialog.Builder(this);
         oDialogo.setTitle("Advertencia");
         oDialogo.setMessage("¿Desea seguir agregando platos?");
@@ -82,7 +89,7 @@ public class ActividadAgregar extends AppCompatActivity {
                 ActividadAgregar.this.finish();
             }
         });
-        oDialogo.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        oDialogo.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 limpiarCuadros();
@@ -96,7 +103,7 @@ public class ActividadAgregar extends AppCompatActivity {
         //Para tomar imágenes del dispositivo se tiene que tener permiso del dispositivo y se hace en Android Manifiest
         Intent oIntento = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         oIntento.setType("image/*");// El tipo de imagen que deseo cargar en la galería
-        startActivityIfNeeded(Intent.createChooser(oIntento,"Seleccionar aplicación"),10);
+        startActivityIfNeeded(Intent.createChooser(oIntento, "Seleccionar aplicación"), 10);
 
     }
 
@@ -104,9 +111,19 @@ public class ActividadAgregar extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode==RESULT_OK){
-            imagenPlato = data.getData();
+        if (resultCode == RESULT_OK) {
+            /*imagenPlato = data.getData();
             imgPlato.setImageURI(imagenPlato);
+            */
+
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(data.getData());
+                imagenPlato = BitmapFactory.decodeStream(inputStream);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            imgPlato.setImageBitmap(imagenPlato);
         }
     }
 }

@@ -11,20 +11,28 @@ public class DAOPlatos implements Serializable {
     public DAOPlatos() {
         this.oPlatos = new ArrayList<>();
     }
-    public void agregar(Plato oP){
+
+    public void agregar(Plato oP) {
         oPlatos.add(oP);
     }
-    public int getContar(){
+
+    public int getContar() {
         return oPlatos.size();
     }
-    public Plato getPlato(int i){
+
+    public Plato getPlato(int i) {
         return oPlatos.get(i);
     }
-    public ArrayList<String> listar(){
+
+    public ArrayList<String> listar() {
         ArrayList<String> tempo = new ArrayList<>();
-        for (Plato op : oPlatos){
+        for (Plato op : oPlatos) {
             tempo.add(op.mostrarObjeto());
         }
         return tempo;
+    }
+
+    public void Eliminar(int indice) {
+        oPlatos.remove(indice);
     }
 }
