@@ -19,7 +19,7 @@ public class ListaAdaptador extends BaseAdapter {
     DAOPlatos datos;
     //String[][] datos;
     //int[] imagenes;
-    private static LayoutInflater inflater = null;
+    private static LayoutInflater inflater =null;
     /*LayoutInflater es para relacionar con lo que se va a cargar en tiempo de ejecución*/
 
     public ListaAdaptador(Context contexto, DAOPlatos datos) {
@@ -50,7 +50,7 @@ public class ListaAdaptador extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         /*Este es el elemento principal, carga cada uno de los elementos
         Aquí se va a cargar el LayoutInflater*/
-        View vista = inflater.inflate(R.layout.ly_elemento_plato, null);
+        View vista=inflater.inflate(R.layout.ly_elemento_plato,null);
         TextView tvTitulo = vista.findViewById(R.id.tvTituloPlato);
         TextView tvOrigen = vista.findViewById(R.id.tvOrigenPlato);
         TextView tvPrecio = vista.findViewById(R.id.tvPrecio);
@@ -61,9 +61,8 @@ public class ListaAdaptador extends BaseAdapter {
         Plato oPlato = datos.getPlato(i);
         tvTitulo.setText(oPlato.getNombre());
         tvOrigen.setText(oPlato.getOrigen());
-        tvPrecio.setText("S/." + oPlato.getPrecio());
-        //imgPlato.setImageURI(oPlato.getImagen());
-        imgPlato.setImageBitmap(oPlato.getImagen());
+        tvPrecio.setText("S/."+oPlato.getPrecio());
+        imgPlato.setImageURI(oPlato.getImagen());
         rbPreferencia.setProgress(oPlato.getPreferencia());
         return vista;
     }

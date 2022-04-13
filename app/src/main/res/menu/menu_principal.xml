@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/itemCatalogo"
-        android:title="Catálogo" />
+        android:title="itemCatalogo" />
     <item
         android:id="@+id/itemMantenimiento"
         android:title="Mantenimiento" >
@@ -11,16 +11,16 @@
             <group >
                 <item
                     android:id="@+id/itemAgregar"
-                    android:title="Agregar" />
+                    android:title="item Agregar" />
                 <item
                     android:id="@+id/itemListar"
-                    android:title="Listar" />
+                    android:title="ItemListar" />
                 <item
                     android:id="@+id/itemModificar"
-                    android:title="Modificar" />
+                    android:title="ItemModificar" />
                 <item
                     android:id="@+id/itemEliminar"
-                    android:title="Eliminar" />
+                    android:title="ItemEliminar" />
             </group>
         </menu>
     </item>
