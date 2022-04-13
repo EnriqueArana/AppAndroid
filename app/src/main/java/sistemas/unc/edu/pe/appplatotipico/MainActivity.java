@@ -25,11 +25,13 @@ public class MainActivity extends AppCompatActivity {
     int[] imagenes={R.drawable.fritocaja,R.drawable.puchero,R.drawable.cuyfrito};*/
     public static DAOPlatos datos;
     ListView lvListaPlatos;
+    public static DAOPlatos datosListar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         datos = new DAOPlatos();
+        datosListar = new DAOPlatos();
         lvListaPlatos = findViewById(R.id.lvListaPlatos);
         lvListaPlatos.setAdapter(new ListaAdaptador(this, datos));
         lvListaPlatos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent oIntento = new Intent(adapterView.getContext(),ActividadDetallePlato.class);
                 oIntento.putExtra("vTitulo",datos.getPlato(i).getNombre());
-                oIntento.putExtra("vDescripcion",datos.getPlato(i).getNombre());
+                oIntento.putExtra("vDescripcion",datos.getPlato(i).getDescripcion());
                 startActivity(oIntento);
             }
         });
@@ -67,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.itemListar:
                 oIntento = new Intent(this, ActividadListar.class);
-                oIntento.putExtra("vLista", datos);
+
+                oIntento.putExtra("vLista", datosListar);
                 startActivity(oIntento);
                 break;
             case R.id.itemModificar:

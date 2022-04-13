@@ -58,7 +58,9 @@ public class ActividadAgregar extends AppCompatActivity {
         precio = Double.valueOf(etPrecio.getText().toString());
         preferencia = rbPreferencia.getProgress();
         Plato oPlato = new Plato(nombre,origen,descripcion,precio,preferencia,imagenPlato);
+        Plato oPlatito = new Plato(nombre,origen,precio);
         MainActivity.datos.agregar(oPlato);
+        MainActivity.datosListar.agregar(oPlatito);
         cuadroDialogo();
     }
 

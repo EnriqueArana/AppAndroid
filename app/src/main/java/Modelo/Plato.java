@@ -21,6 +21,12 @@ public class Plato implements Serializable {
         this.imagen = imagen;
     }
 
+    public Plato(String nombre, String origen, double precio) {
+        this.nombre = nombre;
+        this.origen = origen;
+        this.precio = precio;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -45,6 +51,6 @@ public class Plato implements Serializable {
         return imagen;
     }
     public String mostrarObjeto(){
-        return "Plato "+nombre+" Origen: "+origen+" ,precio"+precio;
+        return "Plato: "+nombre+", Origen: "+origen+" ,precio"+precio;
     }
 }
