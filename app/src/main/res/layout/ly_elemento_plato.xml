@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/imgPlato"
+        android:layout_width="156dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:onClick="mostrarImagen"
+        android:scaleType="fitXY"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTituloPlato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Titulo Plato"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvOrigenPlato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Origen Plato"
+            android:textSize="16sp" />
+
+        <RatingBar
+            android:id="@+id/rbPreferencia"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:numStars="5"
+            android:stepSize="1" />
+            <!--Cuando no se asignan las estrellas valen 0.5 por defecto-->
+
+
+        <TextView
+            android:id="@+id/tvPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Precio Plato" />
+    </LinearLayout>
+</LinearLayout>

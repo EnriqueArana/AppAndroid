@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemCatalogo"
+        android:title="itemCatalogo" />
+    <item
+        android:id="@+id/itemMantenimiento"
+        android:title="Mantenimiento" >
+        <menu >
+            <group >
+                <item
+                    android:id="@+id/itemAgregar"
+                    android:title="item Agregar" />
+                <item
+                    android:id="@+id/itemListar"
+                    android:title="ItemListar" />
+                <item
+                    android:id="@+id/itemModificar"
+                    android:title="ItemModificar" />
+                <item
+                    android:id="@+id/itemEliminar"
+                    android:title="ItemEliminar" />
+            </group>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/itemSalir"
+        android:title="Salir" />
+</menu>

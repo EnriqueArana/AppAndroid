@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_titulo_actividad">20sp</dimen>
+    <dimen name="size_sombra">5</dimen>
+    <dimen name="size_separar_barra_titulo">20dp</dimen>
+</resources>
