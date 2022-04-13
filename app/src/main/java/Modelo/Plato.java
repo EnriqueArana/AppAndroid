@@ -44,6 +44,31 @@ public class Plato implements Serializable {
     public Uri getImagen() {
         return imagen;
     }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setOrigen(String origen) {
+        this.origen = origen;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public void setPreferencia(int preferencia) {
+        this.preferencia = preferencia;
+    }
+
+    public void setImagen(Uri imagen) {
+        this.imagen = imagen;
+    }
+
     public String mostrarObjeto(){
         return "Plato "+nombre+" Origen: "+origen+" ,precio"+precio;
     }

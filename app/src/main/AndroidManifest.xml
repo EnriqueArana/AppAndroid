@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppPlatoTipico">
         <activity
+            android:name=".ModificarPlato"
+            android:exported="false" />
+        <activity
+            android:name=".ActividadModificar"
+            android:exported="false" />
+        <activity
             android:name=".ActividadListar"
             android:exported="false" />
         <activity

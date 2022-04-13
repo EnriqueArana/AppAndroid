@@ -1,5 +1,7 @@
 package AccesoDatos;
 
+import android.net.Uri;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -26,5 +28,13 @@ public class DAOPlatos implements Serializable {
             tempo.add(op.mostrarObjeto());
         }
         return tempo;
+    }
+    public void modificarPlato(int i, String nombreN, String origen, double precio, String descripcion, int estrellas, Uri imagen){
+        oPlatos.get(i).setNombre(nombreN);
+        oPlatos.get(i).setOrigen(origen);
+        oPlatos.get(i).setPrecio(precio);
+        oPlatos.get(i).setDescripcion(descripcion);
+        oPlatos.get(i).setPreferencia(estrellas);
+        oPlatos.get(i).setImagen(imagen);
     }
 }

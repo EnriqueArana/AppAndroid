@@ -71,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(oIntento);
                 break;
             case R.id.itemModificar:
+                oIntento = new Intent(this, ActividadModificar.class);
+                oIntento.putExtra("vLista", datos);
+                startActivity(oIntento);
+                break;
             case R.id.itemSalir:
                 finish();
         }
